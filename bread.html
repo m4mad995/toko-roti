@@ -12,10 +12,14 @@
         /* CSS VARIABLES             */
         /* ================================== */
         :root {
-            --primary-bg-color: #fdce82;  /* Creamy Beige */
-            --secondary-bg-color: #6C402A; /* Dark Chocolate */
-            --accent-color: #FFB047;        /* Warm Amber */
-            --neutral-color: #A0A0A0;       /* Light Gray */
+            --primary-bg-color: #fdce82;
+            /* Creamy Beige */
+            --secondary-bg-color: #6C402A;
+            /* Dark Chocolate */
+            --accent-color: #FFB047;
+            /* Warm Amber */
+            --neutral-color: #A0A0A0;
+            /* Light Gray */
             --text-dark: #333333;
             --text-light: #ffffff;
         }
@@ -86,18 +90,18 @@
 
         .nav-links a::after {
             content: '';
-                position: absolute;
-                bottom: -5px;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background-color: var(--secondary-bg-color);
-                transition: width 0.3s ease;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-bg-color);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover::after {
-                width: 100%;
-            }
+            width: 100%;
+        }
 
         .search-container {
             display: flex;
@@ -451,10 +455,13 @@
             font-size: 0.95rem;
             line-height: 1.6;
             color: var(--text-dark);
-            overflow: hidden;
+            /* overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+            white-space: normal; */
         }
 
         /* ================================== */
@@ -684,6 +691,33 @@
         /* ================================== */
         /* RESPONSIVE DESIGN            */
         /* ================================== */
+
+        /* Media query untuk desktop (1025px ke atas) */
+        @media (min-width: 1025px) {
+            .menu-grid {
+                max-width: 1200px;
+                gap: 40px;
+            }
+
+            .menu-card {
+                padding: 25px;
+            }
+
+            .card-description {
+                padding: 18px;
+                height: auto;
+                min-height: 80px;
+            }
+        }
+
+        /* Media query untuk layar sangat lebar (1440px ke atas) */
+        @media (min-width: 1440px) {
+            .menu-grid {
+                max-width: 1400px;
+                gap: 50px;
+            }
+        }
+
         @media (max-width: 1024px) {
             .menu-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1255,6 +1289,53 @@
                 piece.style.transform = piece.style.transform.replace(' scale(1.1)', '');
             });
         });
+        
+
+        function truncateCardDescriptions() {
+    // Ambil semua elemen card description
+    const descriptions = document.querySelectorAll('.card-description p');
+    
+    descriptions.forEach(function(element) {
+        const originalText = element.textContent;
+        const maxLines = 4; // Maksimal 4 baris
+        
+        // Hitung tinggi untuk 1 baris
+        const lineHeight = parseFloat(window.getComputedStyle(element).lineHeight);
+        const maxHeight = lineHeight * maxLines;
+        
+        // Jika tinggi teks melebihi maksimal
+        if (element.scrollHeight > maxHeight) {
+            let truncatedText = originalText;
+            
+            // Coba potong teks sampai pas dengan tinggi yang diinginkan
+            while (element.scrollHeight > maxHeight && truncatedText.length > 0) {
+                truncatedText = truncatedText.slice(0, -1);
+                element.textContent = truncatedText + '...';
+            }
+        }
+    });
+}
+
+// Jalankan fungsi ketika halaman selesai dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    truncateCardDescriptions();
+});
+
+// Jalankan lagi ketika window diresize (untuk responsive)
+window.addEventListener('resize', function() {
+    // Reset ke teks asli dulu
+    const descriptions = document.querySelectorAll('.card-description p');
+    descriptions.forEach(function(element) {
+        if (element.dataset.originalText) {
+            element.textContent = element.dataset.originalText;
+        } else {
+            element.dataset.originalText = element.textContent.replace('...', '');
+        }
+    });
+    
+    // Truncate lagi
+    setTimeout(truncateCardDescriptions, 100);
+});
     </script>
 </body>
 
