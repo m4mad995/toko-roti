@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roti Nikmat - Berbahan Impor</title>
+    <title>TÉRA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
     <style>
         /* ================================== */
@@ -142,7 +143,7 @@
         /* ================================== */
         .hero {
             background: linear-gradient(135deg, var(--accent-color) 0%, #D2955A 50%, #E8A26A 100%);
-            min-height: 70vh;
+            min-height: 50rem;
             display: flex;
             align-items: center;
             position: relative;
@@ -575,6 +576,195 @@
         }
 
         /* ================================== */
+        /*            contact section        */
+        /* ================================== */
+        .contact {
+            padding: 80px 0;
+            background: var(--primary-bg-color);
+            min-height: 100vh;
+        }
+
+        .cont {
+            background-color: #D2955A;
+            padding: 100px;
+            border-radius: 2rem;
+
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+
+            padding: 0 20px;
+        }
+
+        .contact-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: var(--secondary-bg-color);
+            margin-bottom: 60px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: stretch;
+        }
+
+        /* ===== PETA ===== */
+        .contact-map {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-map:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: 0.003s;
+        }
+
+        .contact-map iframe {
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* ===== FORM ===== */
+        .contact-form {
+            background: var(--primary-bg-color);
+            border: 4px solid var(--accent-color);
+            border-radius: 20px;
+            padding: 30px;
+            height: fit-content;
+            cursor: pointer;
+        }
+
+        .contact-form:hover {
+            transition: 0.003s;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: var(--primary-bg-color);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-bg-color);
+            box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px 25px;
+            background: var(--secondary-bg-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background: #d9531e;
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-title {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+            }
+
+            .contact-map {
+                height: 300px;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            /* AOS hanya untuk mobile */
+            .contact-map[data-aos],
+            .contact-form[data-aos] {
+                /* AOS akan aktif */
+            }
+        }
+
+        @media (min-width: 769px) {
+
+            /* Disable AOS untuk desktop */
+            .contact-map[data-aos],
+            .contact-form[data-aos] {
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .contact-content {
+                gap: 40px;
+            }
+
+            .contact-title {
+                font-size: 3rem;
+            }
+        }
+
+        /* ================================== */
         /* FOOTER                */
         /* ================================== */
         .footer {
@@ -987,7 +1177,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#tentang">Tentang Kami</a></li>
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="#contact">Kontak</a></li>
             </ul>
             <div class="search-container">
                 <input type="text" class="search-box" placeholder="search">
@@ -1003,7 +1193,7 @@
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">
+                <h1 class="hero-title" data-aos="fade-right">
                     Nikmati <span class="highlight-orange">keistimewaan</span><br>
                     roti <span class="highlight-red">dari </span><span class="highlight-orange">bahan</span><br>
                     <span class="highlight-orange">terbaik.</span>
@@ -1024,12 +1214,12 @@
 
     <section class="about" id="tentang">
         <div class="about-container">
-            <h2 class="about-title">Tentang <span class="highlight-red">kami</span></h2>
+            <h2 class="about-title" data-aos="zoom-in-up">Tentang <span class="highlight-red">kami</span></h2>
             <div class="about-content">
-                <div class="bakery-illustration">
+                <div class="bakery-illustration" data-aos="zoom-in-up" data-aos-delay="105" data-aos-mirror="true">
                     <img class="bakery-image" src="toko.jpg" alt="Toko Roti Kami">
                 </div>
-                <div class="about-text">
+                <div class="about-text" data-aos="zoom-in-up" data-aos-delay="110" data-aos-mirror="true">
                     <p>Kami adalah toko roti modern yang menghadirkan berbagai pilihan roti artisan berkualitas tinggi,
                         dibuat dengan bahan terbaik dan proses yang terjaga. Setiap produk dirancang untuk menghadirkan
                         cita rasa autentik, tekstur sempurna, dan pengalaman rasa yang tak terlupakan bagi setiap
@@ -1041,9 +1231,10 @@
 
     <section class="menu" id="menu">
         <div class="menu-container">
-            <h2 class="menu-title">Me<span class="highlight-red">nu</span></h2>
+            <h2 class="menu-title" data-aos="zoom-in-up" data-aos-delay="100" data-aos-mirror="true">Me<span class="highlight-red">nu</span>
+            </h2>
             <div class="menu-grid">
-                <div class="menu-card" onclick="openModal(0)">
+                <div class="menu-card" data-aos="zoom-in-up" data-aos-delay="200" data-aos-mirror="true" onclick="openModal(0)">
                     <div class="card-header">
                         <span class="product-name">Bagel</span>
                     </div>
@@ -1056,7 +1247,7 @@
                     </div>
                 </div>
 
-                <div class="menu-card" onclick="openModal(1)">
+                <div class="menu-card" data-aos="zoom-in-up" data-aos-delay="200" data-aos-mirror="true" onclick="openModal(1)">
                     <div class="card-header">
                         <span class="product-name">Baguette</span>
                     </div>
@@ -1069,7 +1260,7 @@
                     </div>
                 </div>
 
-                <div class="menu-card" onclick="openModal(2)">
+                <div class="menu-card" data-aos="zoom-in-up" data-aos-delay="200" data-aos-mirror="true" onclick="openModal(2)">
                     <div class="card-header">
                         <span class="product-name">Brioche</span>
                     </div>
@@ -1082,7 +1273,7 @@
                     </div>
                 </div>
 
-                <div class="menu-card" onclick="openModal(3)">
+                <div class="menu-card" data-aos="zoom-in-up" data-aos-delay="300" data-aos-mirror="true" onclick="openModal(3)">
                     <div class="card-header">
                         <span class="product-name">Ciabatta</span>
                     </div>
@@ -1095,7 +1286,7 @@
                     </div>
                 </div>
 
-                <div class="menu-card" onclick="openModal(4)">
+                <div class="menu-card" data-aos="zoom-in-up" data-aos-delay="300" data-aos-mirror="true" onclick="openModal(4)">
                     <div class="card-header">
                         <span class="product-name">Sourdough</span>
                     </div>
@@ -1108,7 +1299,7 @@
                     </div>
                 </div>
 
-                <div class="menu-card" onclick="openModal(5)">
+                <div class="menu-card" data-aos="zoom-in-up" data-aos-delay="300" data-aos-mirror="true" onclick="openModal(5)">
                     <div class="card-header">
                         <span class="product-name">Tortilla</span>
                     </div>
@@ -1124,6 +1315,47 @@
         </div>
     </section>
 
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="contact-title">Hubungi <span class="highlight-red">Kami</span></h2>
+
+            <div class="cont">
+                <div class="contact-content">
+                    <!-- Peta (Kiri) -->
+                    <div class="contact-map" data-aos="zoom-in-up" data-aos-delay="450" data-aos-mirror="true">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.4327009112794!2d112.73140327508214!3d-7.305187692702575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb9ef4d7d9ed%3A0x5959ad479fd46d02!2sSMK%20Negeri%201%20Surabaya!5e0!3m2!1sen!2sid!4v1754452701786!5m2!1sen!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <!-- Form (Kanan) -->
+                    <div class="contact-form" data-aos="zoom-in-up" data-aos-delay="450" data-aos-mirror="true">
+                            <form class="form-container">
+                            <div class="form-group">
+                                <label for="nama">Nama</label>
+                                <input type="text" id="nama" name="nama" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pesan">Pesan</label>
+                                <textarea id="pesan" name="pesan" rows="6" required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <footer class="footer" id="kontak">
         <div class="footer-container">
             <div class="social-media">
@@ -1136,7 +1368,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#tentang">Tentang Kami</a></li>
                     <li><a href="#menu">Menu</a></li>
-                    <li><a href="#kontak">Kontak</a></li>
+                    <li><a href="#contact">Kontak</a></li>
                 </ul>
             </div>
             <div class="footer-divider">
@@ -1289,53 +1521,64 @@
                 piece.style.transform = piece.style.transform.replace(' scale(1.1)', '');
             });
         });
-        
+
 
         function truncateCardDescriptions() {
-    // Ambil semua elemen card description
-    const descriptions = document.querySelectorAll('.card-description p');
-    
-    descriptions.forEach(function(element) {
-        const originalText = element.textContent;
-        const maxLines = 4; // Maksimal 4 baris
-        
-        // Hitung tinggi untuk 1 baris
-        const lineHeight = parseFloat(window.getComputedStyle(element).lineHeight);
-        const maxHeight = lineHeight * maxLines;
-        
-        // Jika tinggi teks melebihi maksimal
-        if (element.scrollHeight > maxHeight) {
-            let truncatedText = originalText;
-            
-            // Coba potong teks sampai pas dengan tinggi yang diinginkan
-            while (element.scrollHeight > maxHeight && truncatedText.length > 0) {
-                truncatedText = truncatedText.slice(0, -1);
-                element.textContent = truncatedText + '...';
-            }
-        }
-    });
-}
+            // Ambil semua elemen card description
+            const descriptions = document.querySelectorAll('.card-description p');
 
-// Jalankan fungsi ketika halaman selesai dimuat
-document.addEventListener('DOMContentLoaded', function() {
-    truncateCardDescriptions();
-});
+            descriptions.forEach(function (element) {
+                const originalText = element.textContent;
+                const maxLines = 4; // Maksimal 4 baris
 
-// Jalankan lagi ketika window diresize (untuk responsive)
-window.addEventListener('resize', function() {
-    // Reset ke teks asli dulu
-    const descriptions = document.querySelectorAll('.card-description p');
-    descriptions.forEach(function(element) {
-        if (element.dataset.originalText) {
-            element.textContent = element.dataset.originalText;
-        } else {
-            element.dataset.originalText = element.textContent.replace('...', '');
+                // Hitung tinggi untuk 1 baris
+                const lineHeight = parseFloat(window.getComputedStyle(element).lineHeight);
+                const maxHeight = lineHeight * maxLines;
+
+                // Jika tinggi teks melebihi maksimal
+                if (element.scrollHeight > maxHeight) {
+                    let truncatedText = originalText;
+
+                    // Coba potong teks sampai pas dengan tinggi yang diinginkan
+                    while (element.scrollHeight > maxHeight && truncatedText.length > 0) {
+                        truncatedText = truncatedText.slice(0, -1);
+                        element.textContent = truncatedText + '...';
+                    }
+                }
+            });
         }
-    });
-    
-    // Truncate lagi
-    setTimeout(truncateCardDescriptions, 100);
-});
+
+        // Jalankan fungsi ketika halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', function () {
+            truncateCardDescriptions();
+        });
+
+        // Jalankan lagi ketika window diresize (untuk responsive)
+        window.addEventListener('resize', function () {
+            // Reset ke teks asli dulu
+            const descriptions = document.querySelectorAll('.card-description p');
+            descriptions.forEach(function (element) {
+                if (element.dataset.originalText) {
+                    element.textContent = element.dataset.originalText;
+                } else {
+                    element.dataset.originalText = element.textContent.replace('...', '');
+                }
+            });
+
+            // Truncate lagi
+            setTimeout(truncateCardDescriptions, 100);
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inisialisasi AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease',
+            mirror: true,
+            offset: 100,
+            delay: 0
+        });
     </script>
 </body>
 
